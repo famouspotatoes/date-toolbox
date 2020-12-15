@@ -1,0 +1,55 @@
+// We are using .eslintrc.json instead of .eslintrc.js
+// because eslint is not currently compatible with module
+// syntax for .eslintrc* and .cjs does not work
+
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "import",
+    "prettier",
+    "@typescript-eslint"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./",
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "extends": [
+    "prettier",
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+
+    // Throw errors for un-prettified files
+    "prettier/prettier": "error",
+
+    // Don't require file extensions for JS-related files. They are auto-handled.
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+
+    // We should be able to use `let` in a destructure
+    // even if one destructured value is not reassigned
+    "prefer-const": ["error", {
+      "destructuring": "all"
+    }]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
