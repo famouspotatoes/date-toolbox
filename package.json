@@ -43,7 +43,8 @@
   "lint-staged": {
     "*.ts": [
       "eslint --cache --fix",
-      "prettier --write"
+      "prettier --write",
+      "npm run test-changed"
     ]
   }
 }
