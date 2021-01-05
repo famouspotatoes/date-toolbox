@@ -1,15 +1,16 @@
 {
-  "name": "blank-node-project",
+  "name": "is-valid-date",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "test-changed": "node --experimental-vm-modules node_modules/.bin/jest --onlyChanged --findRelatedTests",
     "build": "ttsc",
     "dev": "ttsc -w",
-    "lint": "eslint . --ext .ts --cache --fix"
+    "lint": "eslint . --ext .ts --cache --fix",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "yup": "^0.32.8"
@@ -43,7 +44,7 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
+    "src/**/*.ts": [
       "eslint --cache --fix",
       "prettier --write",
       "npm run test-changed"
