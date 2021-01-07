@@ -3,7 +3,8 @@
  *
  * @param n
  */
-const isNumeric = (n) => {
+const isFiniteNumber = (n) => {
+	if (typeof n === 'string') n = parseFloat(n)
 	return !Number.isNaN(parseFloat(n)) && Number.isFinite(n)
 }
 
@@ -13,9 +14,13 @@ const isNumeric = (n) => {
  * @param _timestamp
  */
 const isValidTimestamp = (_timestamp) => {
-	const newTimestamp = new Date(_timestamp).getTime()
-	return isNumeric(newTimestamp)
+	return isFiniteNumber()
 }
 
-const timestamp = new Date().valueOf()
-console.log('timestamp', timestamp)
+const currentTimestampInSeconds = new Date().getTime() / 1000
+const twoDaysInSeconds = 3 * 24 * 60 * 60
+const fourDaysInSeconds = 4 * 24 * 60 * 60
+const timestampPlusTwoDays = Math.round(currentTimestampInSeconds + twoDaysInSeconds)
+
+console.log('timestamp', timestampPlusTwoDays)
+console.log('isValidTimestamp', isFiniteNumber(Infinity))

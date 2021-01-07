@@ -1,4 +1,4 @@
-import isValidDate from '../src/index'
+import {isValidDate} from '../src/index'
 
 it('Validates current date', () => {
 	const date = new Date()
