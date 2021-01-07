@@ -5,9 +5,11 @@
  * @param d
  */
 const isValidDate = (d: unknown): boolean => {
-	const isInstanceOfDate = d instanceof Date
-	const isValidNumber = !Number.isNaN(d as number)
-	return isInstanceOfDate && isValidNumber
-}
+	const isInstanceOfDate = d instanceof Date;
+	console.log(isInstanceOfDate);
+	const isValidNumber = !Number.isNaN(d as number);
+	console.log(isValidNumber);
+	return isInstanceOfDate && isValidNumber;
+};
 
-export default isValidDate
+export default isValidDate;
